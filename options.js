@@ -7,8 +7,14 @@ chrome.storage.local.get({ mod: "meta" }, ({ mod }) => {
   for (const group in groups) {
     document.body.append(Object.assign(document.createElement("h2"), { textContent: group }));
     for (const value in groups[group]) {
-      const checked = value == mod ? "checked" : "";
-      document.body.insertAdjacentHTML("beforeend", `<label><input name=mod type=radio value=${value} ${checked}> ${groups[group][value]}</label><br>`);
+      const label = document.createElement("label");
+      const input = document.createElement("input");
+      input.name = "mod";
+      input.type = "radio";
+      input.value = value;
+      input.checked = value == mod;
+      label.append(input, ` ${groups[group][value]}`);
+      document.body.append(label, document.createElement("br"));
     }
   }
   onchange = (event) => chrome.storage.local.set({ mod: event.target.value });
