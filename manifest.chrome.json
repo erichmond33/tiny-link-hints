@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Tiny Link Hints",
+  "version": "0.1.0",
+  "description": "Press a modifier plus J/K/L to label visible links.",
+  "icons": { "48": "icon.png" },
+  "permissions": ["storage"],
+  "background": { "service_worker": "background.js" },
+  "options_ui": { "page": "options.html" },
+  "content_scripts": [{ "matches": ["<all_urls>"], "js": ["hints.js"] }]
+}
