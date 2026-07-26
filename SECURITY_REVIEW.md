@@ -18,7 +18,7 @@ Security posture:
 - Sends one message type inside the extension: a user-selected link URL to open in a tab.
 - Does not read form values, cookies, tokens, localStorage, sessionStorage, or page text.
 
-
+![title](./lint-hints.png)
 
 ## `hints.js`
 
